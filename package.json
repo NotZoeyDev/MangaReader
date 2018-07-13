@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "author": {
     "name": "Zoey Désautels",
@@ -12,6 +14,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "electron": "^2.0.4"
+    "electron": "^2.0.4",
+    "electron-builder": "^20.20.4"
+  },
+  "build": {
+    "appId": "panties.moe"
   }
 }
