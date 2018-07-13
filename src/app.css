@@ -1,0 +1,41 @@
+html, body, section, img {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: #212121;
+}
+
+.controls {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls button {
+    height: 100%;
+    width: 50px;
+    outline: 0;
+    border: 0;
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    font-size: 3em;
+    font-family: "Arial";
+    transition: background-color .2s, filter .2s;
+    cursor: pointer;
+    filter: opacity(5%);
+}
+
+.controls button:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+    filter: opacity(50%);
+}
+
+img {
+    object-fit: contain;
+}

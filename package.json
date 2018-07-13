@@ -1,0 +1,17 @@
+{
+  "name": "mangareader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": {
+    "name": "Zoey Désautels",
+    "email": "Zoey@panties.moe"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^2.0.4"
+  }
+}
