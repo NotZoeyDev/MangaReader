@@ -1,0 +1,133 @@
+html, body, section, img {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: #212121;
+    font-family: "Arial";
+}
+
+section {
+    position: fixed;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.controls {
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: auto;
+}
+
+.controls button {
+    height: 100%;
+    width: 50px;
+    outline: 0;
+    border: 0;
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    font-size: 3em;
+    transition: background-color .2s, filter .2s;
+    cursor: pointer;
+    filter: opacity(5%);
+}
+
+.controls button:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+    filter: opacity(50%);
+}
+
+.container img {
+    object-fit: contain;
+    filter: drop-shadow(0px 0px 10px #000);
+}
+
+.background  {
+    filter: blur(15px);
+    z-index: 1;
+}
+
+.background img {
+    object-fit: cover;
+}
+
+.info[data-show="false"] {
+    display: none;
+}
+
+.info {
+    bottom: 0px;
+    z-index: 4;
+    width: auto;
+    height: auto;
+    margin: 10px;
+}
+
+.info p {
+    margin: 0px;
+    padding: 5px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.50);
+}
+
+.imagebox[data-show="true"] {
+    bottom: 0px;
+}
+
+.imagebox {
+    height: 300px;
+    bottom: -300px;
+    background-color: rgba(0, 0, 0, 0.50);
+    transition: bottom .3s;
+    z-index: 5;
+    display: flex;
+    pointer-events: all;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.imagebox .box {
+    flex-basis: 200px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.imagebox .box p {
+    margin: 10px 0px 0px 0px;
+    font-size: 1.3em;
+    color: white;
+    text-align: center;
+    width: 200px;
+    text-shadow: 0px 0px 10px black;
+    height: 30px;
+}
+
+.imagebox .box img {
+    height: 240px;
+    margin: 10px 0px 0px 0px;
+    object-fit: contain;
+}
+
+
+.imagebox::-webkit-scrollbar {
+    height: 10px;
+}
+
+.imagebox::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.imagebox::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+.imagebox::-webkit-scrollbar-thumb:hover {
+    background: #666; 
+}

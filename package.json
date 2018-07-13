@@ -1,0 +1,57 @@
+{
+	"name": "mangareader",
+	"version": "2.2.0",
+	"description": "An image viewer optimzed for reading Mangas.",
+	"main": "src/main.js",
+	"scripts": {
+		"start": "electron .",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder",
+		"dist-win": "electron-builder --win",
+		"dist-linux": "electron-builder --linux",
+		"dist-mac": "electron-builder --mac",
+		"dist-all": "electron-builder -mwl"
+	},
+	"author": {
+		"name": "Zoey",
+		"url": "https://panties.moe",
+		"email": "Zoey@panties.moe"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"electron": "^6.0.9",
+		"electron-builder": "^21.2.0"
+	},
+	"build": {
+		"appId": "panties.moe.mangareader",
+		"productName": "MangaReader",
+		"fileAssociations": [
+			{
+				"name": "Image",
+				"ext": "jpg"
+			},
+			{
+				"name": "Image",
+				"ext": "png"
+			},
+			{
+				"name": "Image",
+				"ext": "gif"
+			}
+		],
+		"win": {
+			"icon": "build/icon.png",
+			"target": ["nsis", "7z"]
+		},
+		"linux": {
+			"icon": "build/icon.png",
+			"category": "Graphics",
+			"target": ["AppImage", "7z"]
+		},
+		"mac": {
+			"icon": "build/icon.png",
+			"category": "public.app-category.photography",
+			"target": ["dmg", "7z"]
+		}
+	}
+}
