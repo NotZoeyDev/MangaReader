@@ -8,12 +8,20 @@ body {
     margin: 0px;
     overflow: hidden;
     background-color: #212121;
+    font-family: "Arial";
+}
+
+section {
+    position: fixed;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .controls {
-    position: fixed;
+    z-index: 3;
     display: flex;
     justify-content: space-between;
+    pointer-events: auto;
 }
 
 .controls button {
@@ -25,7 +33,6 @@ body {
     margin: 0px;
     background-color: transparent;
     font-size: 3em;
-    font-family: "Arial";
     transition: background-color .2s, filter .2s;
     cursor: pointer;
     filter: opacity(5%);
@@ -38,4 +45,34 @@ body {
 
 img {
     object-fit: contain;
+    filter: drop-shadow(0px 0px 10px #000);
 }
+
+.background  {
+    filter: blur(15px);
+    z-index: 1;
+}
+
+.background img {
+    object-fit: cover;
+}
+
+.info[data-show="false"] {
+    display: none;
+}
+
+.info {
+    bottom: 0px;
+    z-index: 4;
+    width: auto;
+    height: auto;
+    margin: 10px;
+}
+
+.info p {
+    margin: 0px;
+    padding: 5px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.50);
+}
+

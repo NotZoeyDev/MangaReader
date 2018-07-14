@@ -11,8 +11,9 @@ let MainWindow;
 
 // Create Window
 function CreateMainWindow() {
-    MainWindow = new BrowserWindow({});
+    MainWindow = new BrowserWindow({backgroundColor: "#212121", title: "MangaReader"});
     MainWindow.setMenu(null);
+    MainWindow.webContents.openDevTools();
     MainWindow.loadFile("src/app.html");
 }
 

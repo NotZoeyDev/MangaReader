@@ -3,20 +3,30 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Manga Reader</title>
+        <title>MangaReader</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="app.css" />
     </head>
 
     <body>
+        <section class="info" data-show="false">
+            <p class="filename"></p>
+            <p class="folder"></p>
+        </section>
+
         <section class="controls">
-            <button class="left" onclick="previousFile()"><</button>
-            <button class="right" onclick="nextFile()">></button>
+            <button class="left"><</button>
+            <button class="right">></button>
         </section>
 
         <section class="container">
             <img id="image" draggable="false" />
         </section>
+
+        <section class="background">
+            <img id="blur" draggable="false" />
+        </section>
+
 
         <script src="app.js"></script>
     </body>
