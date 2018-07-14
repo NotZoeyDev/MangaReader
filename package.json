@@ -1,10 +1,10 @@
 {
   "name": "mangareader",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "An image viewer optimized for reading mangas",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron . --js-flags='--expose-gc'",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
@@ -18,6 +18,10 @@
     "electron-builder": "^20.20.4"
   },
   "build": {
-    "appId": "panties.moe"
+    "appId": "panties.moe",
+    "productName": "MangaReader",
+    "fileAssociations": {
+      "ext": ["png", "jpg", "gif"]
+    }
   }
 }

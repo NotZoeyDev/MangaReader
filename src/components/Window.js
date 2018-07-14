@@ -7,10 +7,38 @@ module.exports = class Window {
     constructor() {
         this.AppWindow = remote.getCurrentWindow(); // Some electron thing
 
-        document.addEventListener('DOMContentLoaded', () => {
-            ImageViewer.loadFolder();
-            this.loadShortcuts();
-        });
+        // On window load
+        document.addEventListener('DOMContentLoaded', () => this.onLoadHandler());
+
+        // For drag and drop support
+        document.ondragover = () => {return false;};
+        document.ondragleave = () => {return false;};
+        document.ondragend = () => {return false;};
+        document.addEventListener('drop', (event) => this.onDropHandler(event));
+    }
+    
+    // When the app is ready
+    onLoadHandler() {
+        ImageViewer.openFolderDialog();
+        this.loadShortcuts();
+    }
+
+    // When you drop an item
+    onDropHandler(event) {
+        event.preventDefault();
+
+        // Any files to load?
+        if(event.dataTransfer.files && event.dataTransfer.files.length > 0) {
+            let file = event.dataTransfer.files[0].path;
+            let fileStat = fs.statSync(file);
+            let folder = "";
+
+            fileStat.isFile() ? folder = path.dirname(file) : folder = file;
+            
+            ImageViewer.loadFolder(folder);
+        }
+
+        return false;
     }
 
     // Toggle fullscreen
@@ -41,9 +69,9 @@ module.exports = class Window {
                 InfoBox.toggle();
             },
         
-            "p": () => ImageViewer.loadFolder(),
+            "p": () => ImageViewer.openFolderDialog(),
             "f": () => this.toggleFullscreen(),
-            "c": () => clipboard.writeImage(files[index])
+            "c": () => clipboard.writeImage(ImageViewer.files[ImageViewer.index])
         };
 
         document.addEventListener("keydown", (event) => {
