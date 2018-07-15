@@ -1,10 +1,27 @@
 # MangaReader
-Small Electron app I made in 45 minutes to read my yuri manga on my vertical monitor.
+An easy-to-use, open-source and featureful images viewer optimized for reading mangas on your computer!
+Works best with a vertical monitor.
 
 # Features
-- Change pictures via arrow keys
-- Load another folder via the 'p' key
-- Press F to toggle fullscreen
+- Really fast
+- Can replace the Windows images viewer
+- Page viewer
+- Keyboard control
+- Fullscreen view
+- Drag and drop to open folders/files
+- Open files directly from the file explorer
+- Much more to come
+
+# Shortcuts
+- P -> Open a new folder
+- C -> Copy current image to clipboard
+- F -> Toggle fullscreen
+- D -> Debug console (Useless for users)
+- Left and Right keys -> Shift through pictures
+- Up and Down keys -> Show/hide the pages viewer
+- Home and End -> Go to first/last page
+- Space -> Toggle the information box
+- Enter -> Open file in explorer
 
 # MangaDexloader
-I have a [chrome addon](https://github.com/ZoeyDesautels/MangaDexloader) you can use to download your mangas from Mangadex.org.
+I've made a [chrome addon](https://github.com/ZoeyDesautels/MangaDexloader) that you can easily use to download full mangas from MangaDex.org.
