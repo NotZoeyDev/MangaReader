@@ -19,8 +19,14 @@ module.exports = class Window {
     
     // When the app is ready
     onLoadHandler() {
-        ImageViewer.openFolderDialog();
         this.loadShortcuts();
+
+        let file = ipcRenderer.sendSync("get-file");
+        if(file && fs.statSync(file).isFile()) {
+            ImageViewer.loadFolder(path.dirname(file));
+        } else {
+            ImageViewer.openFolderDialog();
+        }
     }
 
     // When you drop an item
@@ -31,7 +37,7 @@ module.exports = class Window {
         if(event.dataTransfer.files && event.dataTransfer.files.length > 0) {
             let file = event.dataTransfer.files[0].path;
             let fileStat = fs.statSync(file);
-            let folder = "";
+            let folder;
 
             fileStat.isFile() ? folder = path.dirname(file) : folder = file;
             
@@ -51,10 +57,13 @@ module.exports = class Window {
         this.AppWindow.setTitle(`MangaReader - ${path.normalize(ImageViewer.files[ImageViewer.index])} - ${ImageViewer.index + 1}/${ImageViewer.files.length}`);
     }
 
+    // Load the keyboard shortcuts
     loadShortcuts() {
         const Shortcuts = {
             "ArrowLeft": () => ImageViewer.loadPreviousPage(),
             "ArrowRight": () => ImageViewer.loadNextPage(),
+            "ArrowUp": () => ImagesBox.show(),
+            "ArrowDown": () => ImagesBox.hide(),
             "Enter": () => shell.showItemInFolder(files[index]),
         
             "Home": () => {
@@ -69,6 +78,7 @@ module.exports = class Window {
                 InfoBox.toggle();
             },
         
+            "d": () => this.AppWindow.webContents.openDevTools(),
             "p": () => ImageViewer.openFolderDialog(),
             "f": () => this.toggleFullscreen(),
             "c": () => clipboard.writeImage(ImageViewer.files[ImageViewer.index])
@@ -80,7 +90,7 @@ module.exports = class Window {
         });
     
         document.addEventListener("wheel", (event) => {
-            event.deltaY > 0 ? previousFile() : nextFile();
+            if(!event.path.includes(ImagesBox.box)) event.deltaY > 0 ? ImageViewer.loadPreviousPage() : ImageViewer.loadNextPage();
         });
     }
 }

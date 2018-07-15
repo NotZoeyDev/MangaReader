@@ -22,6 +22,7 @@ module.exports = class ImageViewer {
 
         InfoBox.setInfo();
         Window.setTitle();
+        ImagesBox.updateScroll();
     }
 
     // Load the next page
@@ -75,6 +76,10 @@ module.exports = class ImageViewer {
             } else {
                 this.index = 0;
                 this.files = files;
+                if(ImagesBox.shown) {
+                    ImagesBox.unloadImages();
+                    ImagesBox.loadImages(() => {});
+                }
                 this.loadPage();
             } 
         });

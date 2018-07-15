@@ -43,7 +43,7 @@ section {
     filter: opacity(50%);
 }
 
-img {
+.container img {
     object-fit: contain;
     filter: drop-shadow(0px 0px 10px #000);
 }
@@ -76,3 +76,58 @@ img {
     background-color: rgba(0, 0, 0, 0.50);
 }
 
+.imagebox[data-show="true"] {
+    bottom: 0px;
+}
+
+.imagebox {
+    height: 300px;
+    bottom: -300px;
+    background-color: rgba(0, 0, 0, 0.50);
+    transition: bottom .3s;
+    z-index: 5;
+    display: flex;
+    pointer-events: all;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.imagebox .box {
+    flex-basis: 200px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.imagebox .box p {
+    margin: 10px 0px 0px 0px;
+    font-size: 1.3em;
+    color: white;
+    text-align: center;
+    width: 200px;
+    text-shadow: 0px 0px 10px black;
+    height: 30px;
+}
+
+.imagebox .box img {
+    height: 240px;
+    margin: 10px 0px 0px 0px;
+    object-fit: contain;
+}
+
+
+.imagebox::-webkit-scrollbar {
+    height: 10px;
+}
+
+.imagebox::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.imagebox::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+.imagebox::-webkit-scrollbar-thumb:hover {
+    background: #666; 
+}

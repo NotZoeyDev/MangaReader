@@ -5,7 +5,7 @@
 */
 
 // Imports
-const remote = require('electron').remote;
+const {remote, ipcRenderer} = require('electron');
 const {dialog, BrowserWindow, shell, clipboard} = remote;
 const fs = require('fs'), path = require('path');
 
@@ -14,3 +14,4 @@ const Window = new (require('./components/Window.js'));
 const ImageViewer = new (require('./components/ImageViewer.js'));
 const ControlsBox = new (require('./components/ControlsBox.js'));
 const InfoBox = new (require('./components/InfoBox.js'));
+const ImagesBox = new (require('./components/ImagesBox.js'));
