@@ -1,5 +1,5 @@
 # MangaReader
-An easy-to-use, open-source and featureful images viewer optimized for reading mangas on your computer!
+An easy-to-use, open-source and featureful images viewer optimized for reading mangas on your computer!  
 Works best with a vertical monitor.
 
 # Features
