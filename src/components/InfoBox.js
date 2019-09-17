@@ -1,3 +1,8 @@
+/**
+ * File information box
+ * By @ZoeyLovesMiki, 2019
+ */
+
 module.exports = class InfoBox {
     constructor() {
         this.infobox = document.querySelector(".info");

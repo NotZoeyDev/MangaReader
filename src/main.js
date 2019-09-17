@@ -1,33 +1,38 @@
-/*
-    Main entrypoint 
-    By Zoey Désautels
-*/
+/**
+ *  Electron entrypoint
+ *  By @ZoeyLovesMiki, 2019
+ */
 
-// Imports my dude
+// Electron imports
 const {BrowserWindow, app, ipcMain} = require('electron');
 
-// Main Window object
-let MainWindow;
-
-// Create Window
-function CreateMainWindow() {
-    MainWindow = new BrowserWindow({backgroundColor: "#212121", title: "MangaReader", webPreferences: {devTools: true}});
-    MainWindow.setMenu(null);
-    MainWindow.loadFile("src/app.html");
-}
+// Our electron window
+let window;
 
 // When app is ready
 app.on('ready', () => {
-    CreateMainWindow();
+    // Create our BrowserWindow
+    window = new BrowserWindow({
+        backgroundColor: "#212121",
+        title: "MangaReader",
+        webPreferences: {
+            devTools: true,
+            nodeIntegration: true
+        }
+    });
+
+    window.setMenu(null);
+    
+    window.loadFile("src/app.html");
 });
 
 // When all windows are closed
 app.on('window-all-closed', () => {
-    MainWindow = null;
+    window = null;
     app.exit(0);
 });
 
-// Function to get the files
+// Get files when a file is opened with the reader
 ipcMain.on('get-file', (event, arg) => {
     let file = process.argv.length >= 2 ? process.argv[1] : null;
     

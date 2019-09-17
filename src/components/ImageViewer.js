@@ -1,6 +1,6 @@
 /*
-    ImageViewer component
-    By Zoey Désautels, 2018
+    Image viewer panel
+    By @ZoeyLovesMiki, 2019
 */
 
 module.exports = class ImageViewer {

@@ -24,4 +24,4 @@ Works best with a vertical monitor.
 - Enter -> Open file in explorer
 
 # MangaDexloader
-I've made a [chrome addon](https://github.com/ZoeyDesautels/MangaDexloader) that you can easily use to download full mangas from MangaDex.org.
+I've made a [chrome addon](https://github.com/NotZoeyDev/MangaDexloader) that you can use to download mangas from [MangaDex](https://mangadex.org).

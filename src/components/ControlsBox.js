@@ -1,3 +1,8 @@
+/**
+ * Handles the controls (Left and right arrow)
+ * By @ZoeyLovesMiki, 2019
+ */
+
 module.exports = class ControlsBox {
     constructor() {
         let controlsContainer = document.querySelector('.controls');

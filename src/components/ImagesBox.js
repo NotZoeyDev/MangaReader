@@ -1,7 +1,7 @@
-/*
-    Images box/view thingy
-    By Zoey Désautels
-*/
+/**
+ *  Images panel shown at the bottom of the screen
+ * By @ZoeyLovesMiki, 2019
+ */
 
 module.exports = class ImagesBox {
     constructor() {

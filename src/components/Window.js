@@ -1,6 +1,6 @@
 /*
-    Window component, mostly take cares of document stuff
-    By Zoey Désautels
+    Window component, handles everything else
+    By @ZoeyLovesMiki, 2019
 */
 
 module.exports = class Window {

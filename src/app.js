@@ -1,12 +1,13 @@
-/*
-    Main code used for the viewer
-    All the components take cares of themselves, no need for extra code here
-    By Zoey Désautels
-*/
+/**
+ *  Import all our components into the app
+ *  By @ZoeyLovesMiki, 2019
+ */
 
-// Imports
+// Electron imports
 const {remote, ipcRenderer} = require('electron');
 const {dialog, BrowserWindow, shell, clipboard} = remote;
+
+// Node imports
 const fs = require('fs'), path = require('path');
 
 // Load the components
